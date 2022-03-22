@@ -1,0 +1,23 @@
+<html>
+	<head>
+		<script type="text/javascript">
+			let socket = new WebSocket("ws://localhost:3000/comments");
+			socket.onmessage = function(event) {
+				document.getElementById('content').innerHTML = document.getElementById('content').innerHTML + "<br>" + event.data;
+			};
+			socket.onerror = function(error) {
+				alert(`[error] ${error.message}`);
+			};
+			function streamComments() {
+				let url = document.getElementById('url').value;
+				socket.send(url);
+				
+			}
+		</script>
+	</head>
+	<body>
+		<input type="text" id="url" />
+		<button onclick="javascript:streamComments()">Start Streaming Comments</button>
+		<p id="content"></p>
+	</body>
+</html>
