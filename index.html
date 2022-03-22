@@ -1,5 +1,13 @@
 <html>
 	<head>
+		<link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+		<link href="https://unpkg.com/nes.css@latest/css/nes.min.css" rel="stylesheet" />
+		<link href="css/fictoan.css" rel="stylesheet" />
+		<style>
+      		html, body, pre, code, kbd, samp, button, input {
+          		font-family: "Press Start 2P";
+      		}
+    	</style>
 		<script type="text/javascript">
 			let socket = new WebSocket("ws://localhost:3000/comments");
 			socket.onmessage = function(event) {
@@ -16,8 +24,21 @@
 		</script>
 	</head>
 	<body>
-		<input type="text" id="url" />
-		<button onclick="javascript:streamComments()">Start Streaming Comments</button>
-		<p id="content"></p>
+		<div class="row">
+			<div class="portion one-fifth">
+			</div>
+			<div class="portion three-fifths">
+				<div class="nes-field">
+		  			<label for="url">Instagram URL</label>
+		  			<input type="text" id="url" class="nes-input">
+				</div>
+				<button type="button" class="nes-btn is-primary" onclick="javascript:streamComments()">Get Comments</button>
+				<div class="nes-container is-rounded">
+		  			<p id="content"></p>
+				</div>
+			</div>
+			<div class="portion one-fifth">
+			</div>
+		</div>
 	</body>
 </html>

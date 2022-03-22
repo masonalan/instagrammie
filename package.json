@@ -11,9 +11,14 @@
   "dependencies": {
     "express": "^4.17.3",
     "express-ws": "^5.0.2",
+    "fictoan": "^2.24.1",
     "nes.css": "^2.3.0",
     "puppeteer": "^13.5.1",
     "puppeteer-extra": "^3.2.3",
-    "puppeteer-extra-plugin-stealth": "^2.9.0"
+    "puppeteer-extra-plugin-stealth": "^2.9.0",
+    "webpack": "^5.70.0"
+  },
+  "devDependencies": {
+    "webpack-cli": "^4.9.2"
   }
 }

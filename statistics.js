@@ -1,5 +1,5 @@
 
-function getMostMentioned(comments) {
+function getMostMentioned(comments, topN) {
 	let mentions = {};
 	for (comment of comments) {
 		if (comment.mentions === null) {
@@ -24,11 +24,21 @@ function getMostMentioned(comments) {
 
 	// Transform the mentions dictionary into an 
 	let pairs = Object.keys(mentions).map((key) => { return [key, mentions[key]] });
-	mentionPairs.sort((lhs, rhs) => {
-		return lhs[1].count - rhs[1].count;
+	pairs.sort((lhs, rhs) => {
+		return rhs[1].count - lhs[1].count;
 	})
-	var keys = mentionPairs.map((e) => { return e[0] });
-	console.log(keys);
-	console.log(mentions);
-	console.log(comments);
+	let sortedMentions = [];
+	let keys = pairs.map((e) => { return e[0] });
+	for (let i = 0; i < topN && i < keys.length; i ++) {
+		let key = keys[i];
+		sortedMentions.push({
+			...mentions[key],
+			key: key
+		});
+	}
+	return sortedMentions;
+}
+
+module.exports = {
+	getMostMentioned
 }
