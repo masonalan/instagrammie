@@ -24,6 +24,7 @@ async function getSession() {
 	browser = await puppeteer.launch({
 		args: [
 			'--window-size=1920,1080',
+			'--no-sandbox'
 			],
 		headless: true
 	});
