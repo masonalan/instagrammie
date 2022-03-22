@@ -17,7 +17,7 @@
 			let socket = new WebSocket(url('comments'));
 			socket.onmessage = function(event) {
 				document.getElementById('content').innerHTML = document.getElementById('content').innerHTML + "<br>" + event.data;
-			};s
+			};
 			socket.onerror = function(error) {
 				alert(`[error] ${error.message}`);
 			};
